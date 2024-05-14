@@ -26,6 +26,7 @@ html, body, #root {
   Typographic tweaks!
   4. Add accessible line-height
   5. Improve text rendering
+  6. Project settings, like font choice
 */
 body {
   line-height: 1.5;
