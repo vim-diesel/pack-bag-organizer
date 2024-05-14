@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default function Footer() {
   return (
@@ -10,8 +10,11 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-  background-color: black;
-  color: white;
-  padding: 1em;
-  text-align: center;
+  width: min(972px, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-top: 12px;
 `;
