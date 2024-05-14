@@ -62,6 +62,30 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/*
+  10. Remove list styles
+*/
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+  11. Body display settings
+*/
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: #f1d4b3;
+  overflow: hidden;
+  color: #292218;
+}
 `;
 
 export default GlobalStyles;
