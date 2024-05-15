@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export default function Footer() {
   return (
     <StyledFooter>
-      <h6>Copyright 2040 All Rights Reserved</h6>
-      <h6>Version 1.1</h6>
+      <small>Copyright 2040 Devflow Inc.</small>
+      <p>Version <strong>1.1</strong></p>
     </StyledFooter>
   );
 }
