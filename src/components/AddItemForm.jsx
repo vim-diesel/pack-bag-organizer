@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export default function AddItemForm() {
   return (
     <form>
+      <ItemFormHeading>Add Item</ItemFormHeading>
       <ItemFormInput type='text' placeholder='Add item' />
       <button type='submit'>+</button>
     </form>
@@ -21,4 +22,11 @@ const ItemFormInput = styled.input`
   &::placeholder {
     font-style: italic;
   }
+`;
+
+
+const ItemFormHeading = styled.h2`
+  color: #231d15;
+  font-size: 16px;
+  font-weight: 500;
 `;
