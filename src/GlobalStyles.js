@@ -27,11 +27,16 @@ html, body, #root {
   4. Add accessible line-height
   5. Improve text rendering
   6. Project settings, like font choice
+  7. Small font inherits parent font
 */
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: "Inter", sans-serif;
+}
+
+small {
+  font: inherit;
 }
 
 /*
