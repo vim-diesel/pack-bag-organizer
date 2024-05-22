@@ -8,8 +8,7 @@ const itemsData = [
 ];
 
 export default function ItemList() {
-  const [items, setItems] = useState();
-  setItems(itemsData);
+  const [items, setItems] = useState(itemsData);
 
   return (
     <StyledList>
@@ -26,6 +25,8 @@ function Item({ label, checked }) {
       <label>
         <input type='checkbox' checked={checked} /> {label}
       </label>
+
+      <button>❌</button>
     </StyledListItem>
   );
 }
