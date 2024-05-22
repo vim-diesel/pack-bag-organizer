@@ -87,6 +87,16 @@ body {
   color: #292218;
 }
 
+/*
+  12. Remove default button styles
+*/
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  background: none;
+}
 `;
 
 export default GlobalStyles;
