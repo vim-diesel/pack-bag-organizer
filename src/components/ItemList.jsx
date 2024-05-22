@@ -4,7 +4,7 @@ import { useState } from 'react';
 const itemsData = [
   { id: 1, label: 'passport', completed: false },
   { id: 2, label: 'phone charger', completed: false },
-  { id: 3, label: 'grounded in the body', completed: false },
+  { id: 3, label: 'grounded in the body', completed: true },
 ];
 
 export default function ItemList() {
@@ -65,6 +65,15 @@ const StyledListItem = styled.li`
     box-sizing: content-box;
   }
 
+  label > input:hover {
+    border-color: #8f8474;
+  }
+
+  label > input:checked {
+    border-color: #6e6251;
+    background-color: #6e6251;
+  }
+
   label {
     cursor: pointer;
     flex: 1;
@@ -72,5 +81,21 @@ const StyledListItem = styled.li`
     display: flex;
     align-items: center;
     padding: 0 28px;
+  }
+
+  button {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    position: absolute;
+    right: 28px;
+    top: 0;
+    color: #231d15;
+    height: 100%;
+    transition: all 0.1s;
+  }
+
+  button:hover,
+  button:focus {
+    transform: scale(1.2);
   }
 `;
