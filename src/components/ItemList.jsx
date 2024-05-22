@@ -12,10 +12,10 @@ export default function ItemList() {
 
 function Item({children}) {
   return (
-    <li>
+    <StyledItem>
       <input type="checkbox" />
       <span>{children}</span>
-    </li>
+    </StyledItem>
   );
 
 }
@@ -28,4 +28,12 @@ const StyledItemList = styled.ul`
   scrollbar-color: red orange;
   scrollbar-width: thin;
   position: relative;
+`;
+
+const StyledItem = styled.li`
+  display: flex;
+  position: relative;
+  height: 50px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 `;
