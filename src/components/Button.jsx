@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export default function Button({ onClick, buttonType, children }) {
+export default function Button({ onClick, type, children }) {
   return (
-    <StyledButton buttonType={buttonType} onClick={onClick}>
+    <StyledButton type={type} onClick={onClick}>
       {children}
     </StyledButton>
   );
@@ -26,6 +26,6 @@ const StyledButton = styled.button`
     background-color: #322618;
   }
 
-  opacity: ${(props) => (props.buttonType === 'secondary' ? '0.85' : '')};
-  font-size: ${(props) => (props.buttonType === 'secondary' ? '0.875rem' : '')};
+  opacity: ${(props) => (props.type === 'secondary' ? '0.85' : '')};
+  font-size: ${(props) => (props.type === 'secondary' ? '0.875rem' : '')};
 `;

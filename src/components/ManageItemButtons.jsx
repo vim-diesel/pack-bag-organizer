@@ -4,10 +4,10 @@ import Button from './Button';
 export default function ManageItemButtons() {
   return (
     <StyledButtonGroup>
-      <Button buttonType='secondary'>Mark all complete</Button>
-      <Button buttonType='secondary'>Mark all incomplete</Button>
-      <Button buttonType='secondary'>Reset</Button>
-      <Button buttonType='secondary'>Remove all</Button>
+      <Button type='secondary'>Mark all complete</Button>
+      <Button type='secondary'>Mark all incomplete</Button>
+      <Button type='secondary'>Reset</Button>
+      <Button type='secondary'>Remove all</Button>
     </StyledButtonGroup>
   );
 }
