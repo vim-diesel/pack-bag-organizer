@@ -10,17 +10,17 @@ export default function ItemList() {
   return (
     <StyledList>
       {Items.map((item) => (
-        <Item key={item.id} label={item.label} />
+        <Item key={item.id} label={item.label} checked={item.completed}/>
       ))}
     </StyledList>
   );
 }
 
-function Item({ label }) {
+function Item({ label, checked }) {
   return (
     <StyledListItem>
       <label>
-        <input type='checkbox' /> {label}
+        <input type='checkbox' checked={checked}/> {label}
       </label>
     </StyledListItem>
   );
@@ -40,7 +40,7 @@ const StyledListItem = styled.li`
   display: flex;
   position: relative;
   height: 50px;
-  font-size: 14px;
+  font-size: 0.875rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
   label > input {
