@@ -1,23 +1,30 @@
 import styled from 'styled-components';
 
+const Items = [
+  { id: 1, label: 'passport', completed: false },
+  { id: 2, label: 'phone charger', completed: false },
+  { id: 3, label: 'grounded in the body', completed: false },
+];
+
 export default function ItemList() {
   return (
     <StyledItemList>
-      <Item>passport</Item>
-      <Item>phone charger</Item>
-      <Item>grounded in the body</Item>
+      {Items.map((item) => (
+        <Item key={item.id} label={item.label} />
+      ))}
     </StyledItemList>
   );
 }
 
-function Item({children}) {
+function Item({ label }) {
   return (
     <StyledItem>
-      <input type="checkbox" />
-      <span>{children}</span>
+      <label>
+        <input type='checkbox' />
+        {label}
+      </label>
     </StyledItem>
   );
-
 }
 
 const StyledItemList = styled.ul`
