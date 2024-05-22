@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-export default function Button({ buttonType, children }) {
-  return <StyledButton buttonType={buttonType}>{children}</StyledButton>;
+export default function Button({ onClick, buttonType, children }) {
+  return (
+    <StyledButton buttonType={buttonType} onClick={onClick}>
+      {children}
+    </StyledButton>
+  );
 }
 
 const StyledButton = styled.button`
@@ -11,10 +15,14 @@ const StyledButton = styled.button`
   border-radius: 5px;
   background-color: #473a2b;
   color: #fff;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.2s;
+
+  &:hover {
+    background-color: #322618;
+  }
 `;
