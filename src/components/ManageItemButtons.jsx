@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import Button from './Button';
 
 export default function ManageItemButtons() {
   return (
     <StyledButtonGroup>
-      <button type='button'>Pack</button>
-      <button type='button'>Remove</button>
+      <Button>Pack</Button>
+      <Button>Remove</Button>
     </StyledButtonGroup>
   );
 }

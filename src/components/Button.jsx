@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export default function Button({ children }) {
-  return <StyledButton>{children}</StyledButton>;
+export default function Button({ buttonType, children }) {
+  return <StyledButton buttonType={buttonType}>{children}</StyledButton>;
 }
 
 const StyledButton = styled.button`
