@@ -1,11 +1,17 @@
 import styled from 'styled-components';
+import Button from './Button';
 
 export default function AddItemForm() {
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log('Item added');
+      }}
+    >
       <ItemFormHeading>Add Item</ItemFormHeading>
-      <ItemFormInput type='text' placeholder='Add item' />
-      <button type='submit'>+</button>
+      <ItemFormInput type='text' placeholder='...' />
+      <Button>Add to list</Button>
     </form>
   );
 }
@@ -23,7 +29,6 @@ const ItemFormInput = styled.input`
     font-style: italic;
   }
 `;
-
 
 const ItemFormHeading = styled.h2`
   color: #231d15;
