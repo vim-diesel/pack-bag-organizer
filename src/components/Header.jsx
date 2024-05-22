@@ -1,7 +1,14 @@
 import styled from 'styled-components';
+import Logo from './Logo';
+import Counter from './Counter';
 
 export default function Header() {
-  return <StyledHeader>Header</StyledHeader>;
+  return (
+    <StyledHeader>
+      <Logo />
+      <Counter />
+    </StyledHeader>
+  );
 }
 
 const StyledHeader = styled.header`
