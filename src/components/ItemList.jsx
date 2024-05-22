@@ -3,10 +3,21 @@ import styled from 'styled-components';
 export default function ItemList() {
   return (
     <StyledItemList>
-      <li>Item 1</li>
-      <li>Item 2</li>
+      <Item>passport</Item>
+      <Item>phone charger</Item>
+      <Item>grounded in the body</Item>
     </StyledItemList>
   );
+}
+
+function Item({children}) {
+  return (
+    <li>
+      <input type="checkbox" />
+      <span>{children}</span>
+    </li>
+  );
+
 }
 
 const StyledItemList = styled.ul`
