@@ -21,6 +21,7 @@ function Item({ label }) {
     <StyledListItem>
       <label>
         <input type='checkbox' />
+        {' '}
         {label}
       </label>
     </StyledListItem>
