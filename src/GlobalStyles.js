@@ -86,6 +86,7 @@ body {
   overflow: hidden;
   color: #292218;
 }
+
 `;
 
 export default GlobalStyles;
