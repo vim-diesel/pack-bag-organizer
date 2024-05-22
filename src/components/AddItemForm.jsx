@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import Button from './Button';
+import { useState } from 'react';
 
 export default function AddItemForm() {
+  const [itemToAdd, setItemToAdd] = useState('');
+
   return (
     <form
       onSubmit={(e) => {
@@ -10,7 +13,12 @@ export default function AddItemForm() {
       }}
     >
       <ItemFormHeading>Add Item</ItemFormHeading>
-      <ItemFormInput type='text' placeholder='...' />
+      <ItemFormInput
+        type='text'
+        placeholder='...'
+        value={itemToAdd}
+        onChange={(e) => setItemToAdd(e.target.value)}
+      />
       <Button>Add to list</Button>
     </form>
   );
