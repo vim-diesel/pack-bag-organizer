@@ -2,6 +2,8 @@
 
 export default function Counter() {
   return (
-    <div>Counter</div>
-  )
+    <p>
+      <strong>1</strong> / 3 items packed
+    </p>
+  );
 }
