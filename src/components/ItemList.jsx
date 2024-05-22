@@ -8,26 +8,26 @@ const Items = [
 
 export default function ItemList() {
   return (
-    <StyledItemList>
+    <StyledList>
       {Items.map((item) => (
         <Item key={item.id} label={item.label} />
       ))}
-    </StyledItemList>
+    </StyledList>
   );
 }
 
 function Item({ label }) {
   return (
-    <StyledItem>
+    <StyledListItem>
       <label>
         <input type='checkbox' />
         {label}
       </label>
-    </StyledItem>
+    </StyledListItem>
   );
 }
 
-const StyledItemList = styled.ul`
+const StyledList = styled.ul`
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   background-color: #fff;
@@ -37,7 +37,7 @@ const StyledItemList = styled.ul`
   position: relative;
 `;
 
-const StyledItem = styled.li`
+const StyledListItem = styled.li`
   display: flex;
   position: relative;
   height: 50px;
