@@ -20,9 +20,7 @@ function Item({ label }) {
   return (
     <StyledListItem>
       <label>
-        <input type='checkbox' />
-        {' '}
-        {label}
+        <input type='checkbox' /> {label}
       </label>
     </StyledListItem>
   );
@@ -44,4 +42,30 @@ const StyledListItem = styled.li`
   height: 50px;
   font-size: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  label > input {
+    height: 15px;
+    width: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid #d3d3d3;
+    border-radius: 2px;
+    outline: 2px solid transparent;
+    transition-duration: 0.3s;
+    background-color: #fff;
+    cursor: pointer;
+    margin-right: 13px;
+    box-sizing: content-box;
+  }
+
+  label {
+    cursor: pointer;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+  }
 `;
