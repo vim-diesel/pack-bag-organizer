@@ -1,16 +1,20 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
-const Items = [
+const itemsData = [
   { id: 1, label: 'passport', completed: false },
   { id: 2, label: 'phone charger', completed: false },
   { id: 3, label: 'grounded in the body', completed: false },
 ];
 
 export default function ItemList() {
+  const [items, setItems] = useState();
+  setItems(itemsData);
+
   return (
     <StyledList>
-      {Items.map((item) => (
-        <Item key={item.id} label={item.label} checked={item.completed}/>
+      {items.map((item) => (
+        <Item key={item.id} label={item.label} checked={item.completed} />
       ))}
     </StyledList>
   );
@@ -20,7 +24,7 @@ function Item({ label, checked }) {
   return (
     <StyledListItem>
       <label>
-        <input type='checkbox' checked={checked}/> {label}
+        <input type='checkbox' checked={checked} /> {label}
       </label>
     </StyledListItem>
   );
