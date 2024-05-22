@@ -99,7 +99,6 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  font: inherit;
   background: none;
 }
 `;

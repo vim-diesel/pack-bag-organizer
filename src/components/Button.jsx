@@ -25,4 +25,7 @@ const StyledButton = styled.button`
   &:hover {
     background-color: #322618;
   }
+
+  opacity: ${(props) => (props.buttonType === 'secondary' ? '0.85' : '')};
+  font-size: ${(props) => (props.buttonType === 'secondary' ? '0.875rem' : '')};
 `;
