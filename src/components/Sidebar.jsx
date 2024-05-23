@@ -7,16 +7,16 @@ import styled from 'styled-components';
 // AddItemForm and ManageItemButtons are not semantically the same so they are
 // not wrapped in a single section element.
 
-export default function Sidebar() {
+export default function Sidebar({ setItems }) {
   return (
     <SidebarWrapper>
-      <AddItemForm />
+      <AddItemForm setItems={setItems} />
       <ManageItemButtons />
     </SidebarWrapper>
   );
 }
 
-const SidebarWrapper= styled.div`
+const SidebarWrapper = styled.div`
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-color: #fffcf9;
