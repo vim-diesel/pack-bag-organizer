@@ -16,6 +16,11 @@ const itemsData = [
 function App() {
   const [items, setItems] = useState(itemsData);
 
+  const handleAddItem = (newItem) => {
+    const newItems = [...items, newItem];
+    setItems(newItems);
+  };
+
   return (
     <>
       <BackgroundHeading />
@@ -23,7 +28,7 @@ function App() {
       <StyledMain>
         <Header />
         <ItemList items={items} />
-        <Sidebar setItems={setItems} />
+        <Sidebar handleAddItem={handleAddItem} />
       </StyledMain>
 
       <Footer />

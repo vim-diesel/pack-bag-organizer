@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from './Button';
 import { useRef, useState } from 'react';
 
-export default function AddItemForm({ setItems }) {
+export default function AddItemForm({ handleAddItem }) {
   const [itemToAdd, setItemToAdd] = useState('');
 
   const inputRef = useRef();
@@ -21,7 +21,7 @@ export default function AddItemForm({ setItems }) {
       id: Math.random(),
     };
 
-    setItems((prev) => [...prev, newItem]);
+    handleAddItem(newItem);
 
     setItemToAdd('');
   };
