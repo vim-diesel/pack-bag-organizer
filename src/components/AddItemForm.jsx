@@ -1,30 +1,39 @@
 import styled from 'styled-components';
 import Button from './Button';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function AddItemForm({ setItems }) {
   const [itemToAdd, setItemToAdd] = useState('');
 
+  const inputRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!itemToAdd) {
+      inputRef.current.focus();
+      return;
+    }
+
+    const newItem = {
+      label: itemToAdd,
+      completed: false,
+      id: Math.random(),
+    };
+
+    setItems((prev) => [...prev, newItem]);
+
+    setItemToAdd('');
+  };
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        const newItem = {
-          label: itemToAdd,
-          completed: false,
-          id: Math.random(),
-        };
-
-        setItems((prev) => [...prev, newItem]);
-
-        setItemToAdd('');
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <ItemFormHeading>Add Item</ItemFormHeading>
       <ItemFormInput
         type='text'
         placeholder='...'
         value={itemToAdd}
+        ref={inputRef}
         onChange={(e) => setItemToAdd(e.target.value)}
       />
       <Button>Add to list</Button>
