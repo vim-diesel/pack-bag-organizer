@@ -2,14 +2,22 @@ import styled from 'styled-components';
 import Button from './Button';
 import { useState } from 'react';
 
-export default function AddItemForm() {
+export default function AddItemForm({ setItems }) {
   const [itemToAdd, setItemToAdd] = useState('');
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        console.log('Item added');
+        const newItem = {
+          label: itemToAdd,
+          completed: false,
+          id: Math.random(),
+        };
+
+        setItems((prev) => [...prev, newItem]);
+
+        setItemToAdd('');
       }}
     >
       <ItemFormHeading>Add Item</ItemFormHeading>

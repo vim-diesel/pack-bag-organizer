@@ -1,15 +1,6 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 
-const itemsData = [
-  { id: 1, label: 'passport', completed: false },
-  { id: 2, label: 'phone charger', completed: false },
-  { id: 3, label: 'grounded in the body', completed: true },
-];
-
-export default function ItemList() {
-  const [items, setItems] = useState(itemsData);
-
+export default function ItemList({ items }) {
   return (
     <StyledList>
       {items.map((item) => (

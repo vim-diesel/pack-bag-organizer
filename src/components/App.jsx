@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import BackgroundHeading from './BackgroundHeading';
 import Footer from './Footer';
@@ -6,15 +7,23 @@ import Header from './Header';
 import ItemList from './ItemList';
 import Sidebar from './Sidebar';
 
+const itemsData = [
+  { id: 1, label: 'passport', completed: false },
+  { id: 2, label: 'phone charger', completed: false },
+  { id: 3, label: 'grounded in the body', completed: true },
+];
+
 function App() {
+  const [items, setItems] = useState(itemsData);
+
   return (
     <>
       <BackgroundHeading />
 
       <StyledMain>
         <Header />
-        <ItemList />
-        <Sidebar />
+        <ItemList items={items} />
+        <Sidebar setItems={setItems} />
       </StyledMain>
 
       <Footer />
