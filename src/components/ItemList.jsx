@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
+import EmptyView from './EmptyView';
+
 export default function ItemList({
   items,
   handleDeleteItem,
   handleToggleItem,
 }) {
-  return (
+  return items.length === 0 ? (
+    <EmptyView />
+  ) : (
     <StyledList>
       {items.map((item) => (
         <Item
@@ -25,7 +29,11 @@ function Item({ label, itemId, checked, handleDeleteItem, handleToggleItem }) {
   return (
     <StyledListItem>
       <label>
-        <input type='checkbox' checked={checked} onChange={() => handleToggleItem(itemId)} />{' '}
+        <input
+          type='checkbox'
+          checked={checked}
+          onChange={() => handleToggleItem(itemId)}
+        />{' '}
         {label}
       </label>
 
