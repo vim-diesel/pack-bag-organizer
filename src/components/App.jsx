@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import BackgroundHeading from './BackgroundHeading';
 import Footer from './Footer';
@@ -14,7 +14,18 @@ const itemsData = [
 ];
 
 function App() {
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState(() => {
+    const savedItems = localStorage.getItem('items');
+    if (savedItems) {
+      return JSON.parse(savedItems);
+    } else {
+      return itemsData;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   const itemsLength = items.length;
   const itemsChecked = items.filter((item) => item.completed).length;
@@ -60,7 +71,6 @@ function App() {
   const handleReset = () => {
     setItems(itemsData);
   };
-
 
   return (
     <>
