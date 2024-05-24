@@ -17,17 +17,36 @@ export default function ItemList({
 }) {
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
+  // we use the spread operator to create a new array. sort() method does not 
+  // return a new array, but mutates the original array. We want to avoid
+  // mutating the original array.
+  const sortedItems = [...items].sort((a, b) => {
+    if (selectedOption.value === 'completed') {
+      return b.completed - a.completed;
+    }
+
+    if (selectedOption.value === 'incomplete') {
+      return a.completed - b.completed;
+    }
+
+    return;
+  });
+
   return (
     <StyledList>
       {items.length === 0 && <EmptyView />}
 
       {items.length > 0 && (
         <StyledSelectSection>
-          <Select value={selectedOption} onChange={setSelectedOption} options={options} />
+          <Select
+            value={selectedOption}
+            onChange={setSelectedOption}
+            options={options}
+          />
         </StyledSelectSection>
       )}
 
-      {items.map((item) => (
+      {sortedItems.map((item) => (
         <Item
           key={item.id}
           itemId={item.id}
