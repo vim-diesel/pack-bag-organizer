@@ -1,15 +1,31 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import EmptyView from './EmptyView';
+import Select from 'react-select';
+
+const options = [
+  { value: 'default', label: 'Sort by Default' },
+  { value: 'completed', label: 'Sort by Completed' },
+  { value: 'incomplete', label: 'Sort by Incomplete' },
+];
 
 export default function ItemList({
   items,
   handleDeleteItem,
   handleToggleItem,
 }) {
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+
   return (
     <StyledList>
       {items.length === 0 && <EmptyView />}
+
+      {items.length > 0 && (
+        <StyledSelectSection>
+          <Select value={selectedOption} onChange={setSelectedOption} options={options} />
+        </StyledSelectSection>
+      )}
 
       {items.map((item) => (
         <Item
@@ -50,6 +66,12 @@ const StyledList = styled.ul`
   scrollbar-color: red orange;
   scrollbar-width: thin;
   position: relative;
+`;
+
+const StyledSelectSection = styled.section`
+  padding: 15px 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 0.813rem;
 `;
 
 const StyledListItem = styled.li`
