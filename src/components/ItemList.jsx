@@ -7,10 +7,10 @@ export default function ItemList({
   handleDeleteItem,
   handleToggleItem,
 }) {
-  return items.length === 0 ? (
-    <EmptyView />
-  ) : (
+  return (
     <StyledList>
+      {items.length === 0 && <EmptyView />}
+
       {items.map((item) => (
         <Item
           key={item.id}

@@ -58,12 +58,15 @@ function App() {
     setItems(itemsData);
   };
 
+  const itemsLength = items.length;
+  const itemsRemaining = items.filter((item) => !item.completed).length;
+
   return (
     <>
       <BackgroundHeading />
 
       <StyledMain>
-        <Header />
+        <Header itemsLength={itemsLength} itemsRemaining={itemsRemaining} />
         <ItemList
           items={items}
           handleDeleteItem={handleDeleteItem}

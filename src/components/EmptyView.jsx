@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default function EmptyView() {
   return (
-    <StyledSection>
+    <StyledSection >
       <StyledHeader>Empty Packing List</StyledHeader>
       <StyledParagraph>Nothing to pack yet!</StyledParagraph>
     </StyledSection>
@@ -10,12 +10,11 @@ export default function EmptyView() {
 }
 
 const StyledSection = styled.section`
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 `;
 
 const StyledHeader = styled.h3`
