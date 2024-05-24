@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import Counter from './Counter';
 
-export default function Header() {
+export default function Header({ itemsLength, itemsChecked }) {
   return (
     <StyledHeader>
       <Logo />
-      <Counter />
+      <Counter itemsLength={itemsLength} itemsChecked={itemsChecked} />
     </StyledHeader>
   );
 }

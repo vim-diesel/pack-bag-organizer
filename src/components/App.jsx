@@ -59,14 +59,14 @@ function App() {
   };
 
   const itemsLength = items.length;
-  const itemsRemaining = items.filter((item) => !item.completed).length;
+  const itemsChecked = items.filter((item) => item.completed).length;
 
   return (
     <>
       <BackgroundHeading />
 
       <StyledMain>
-        <Header itemsLength={itemsLength} itemsRemaining={itemsRemaining} />
+        <Header itemsLength={itemsLength} itemsChecked={itemsChecked} />
         <ItemList
           items={items}
           handleDeleteItem={handleDeleteItem}
