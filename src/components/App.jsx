@@ -21,6 +21,28 @@ function App() {
     setItems(newItems);
   };
 
+  const handleRemoveAllItems = () => {
+    setItems([]);
+  };
+
+  const handleMarkAllComplete = () => {
+    const newItems = items.map((item) => {
+      return { ...item, completed: true };
+    });
+    setItems(newItems);
+  };
+
+  const handleMarkAllIncomplete = () => {
+    const newItems = items.map((item) => {
+      return { ...item, completed: false };
+    });
+    setItems(newItems);
+  };
+
+  const handleReset = () => {
+    setItems(itemsData);
+  };
+
   return (
     <>
       <BackgroundHeading />
@@ -28,7 +50,13 @@ function App() {
       <StyledMain>
         <Header />
         <ItemList items={items} />
-        <Sidebar handleAddItem={handleAddItem} />
+        <Sidebar
+          handleAddItem={handleAddItem}
+          handleRemoveAllItems={handleRemoveAllItems}
+          handleMarkAllComplete={handleMarkAllComplete}
+          handleMarkAllIncomplete={handleMarkAllIncomplete}
+          handleReset={handleReset}
+        />
       </StyledMain>
 
       <Footer />

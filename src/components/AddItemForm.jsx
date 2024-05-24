@@ -36,7 +36,7 @@ export default function AddItemForm({ handleAddItem }) {
         ref={inputRef}
         onChange={(e) => setItemToAdd(e.target.value)}
       />
-      <Button>Add to list</Button>
+      <Button type='submit'>Add to list</Button>
     </form>
   );
 }

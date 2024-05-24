@@ -1,13 +1,26 @@
 import styled from 'styled-components';
 import Button from './Button';
 
-export default function ManageItemButtons() {
+export default function ManageItemButtons({
+  handleRemoveAllItems,
+  handleMarkAllComplete,
+  handleMarkAllIncomplete,
+  handleReset,
+}) {
   return (
     <StyledButtonGroup>
-      <Button type='secondary'>Mark all complete</Button>
-      <Button type='secondary'>Mark all incomplete</Button>
-      <Button type='secondary'>Reset</Button>
-      <Button type='secondary'>Remove all</Button>
+      <Button type='secondary' onClick={handleMarkAllComplete}>
+        Mark all complete
+      </Button>
+      <Button type='secondary' onclick={handleMarkAllIncomplete}>
+        Mark all incomplete
+      </Button>
+      <Button type='secondary' onClick={handleReset}>
+        Reset
+      </Button>
+      <Button type='secondary' onClick={handleRemoveAllItems}>
+        Remove all
+      </Button>
     </StyledButtonGroup>
   );
 }

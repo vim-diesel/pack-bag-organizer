@@ -7,11 +7,22 @@ import styled from 'styled-components';
 // AddItemForm and ManageItemButtons are not semantically the same so they are
 // not wrapped in a single section element.
 
-export default function Sidebar({ handleAddItem }) {
+export default function Sidebar({
+  handleAddItem,
+  handleRemoveAllItems,
+  handleMarkAllComplete,
+  handleMarkAllIncomplete,
+  handleReset,
+}) {
   return (
     <SidebarWrapper>
       <AddItemForm handleAddItem={handleAddItem} />
-      <ManageItemButtons />
+      <ManageItemButtons
+        handleRemoveAllItems={handleRemoveAllItems}
+        handleMarkAllComplete={handleMarkAllComplete}
+        handleMarkAllIncomplete={handleMarkAllIncomplete}
+        handleReset={handleReset}
+      />
     </SidebarWrapper>
   );
 }
