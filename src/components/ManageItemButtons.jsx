@@ -12,7 +12,7 @@ export default function ManageItemButtons({
       <Button type='secondary' onClick={handleMarkAllComplete}>
         Mark all complete
       </Button>
-      <Button type='secondary' onclick={handleMarkAllIncomplete}>
+      <Button type='secondary' onClick={handleMarkAllIncomplete}>
         Mark all incomplete
       </Button>
       <Button type='secondary' onClick={handleReset}>
