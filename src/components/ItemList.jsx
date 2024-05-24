@@ -1,23 +1,35 @@
 import styled from 'styled-components';
 
-export default function ItemList({ items }) {
+export default function ItemList({
+  items,
+  handleDeleteItem,
+  handleToggleItem,
+}) {
   return (
     <StyledList>
       {items.map((item) => (
-        <Item key={item.id} label={item.label} checked={item.completed} />
+        <Item
+          key={item.id}
+          itemId={item.id}
+          label={item.label}
+          checked={item.completed}
+          handleDeleteItem={handleDeleteItem}
+          handleToggleItem={handleToggleItem}
+        />
       ))}
     </StyledList>
   );
 }
 
-function Item({ label, checked }) {
+function Item({ label, itemId, checked, handleDeleteItem, handleToggleItem }) {
   return (
     <StyledListItem>
       <label>
-        <input type='checkbox' checked={checked} /> {label}
+        <input type='checkbox' checked={checked} onChange={() => handleToggleItem(itemId)} />{' '}
+        {label}
       </label>
 
-      <button>❌</button>
+      <button onClick={() => handleDeleteItem(itemId)}>❌</button>
     </StyledListItem>
   );
 }
