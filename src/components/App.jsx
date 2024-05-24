@@ -16,6 +16,9 @@ const itemsData = [
 function App() {
   const [items, setItems] = useState(itemsData);
 
+  const itemsLength = items.length;
+  const itemsChecked = items.filter((item) => item.completed).length;
+
   const handleAddItem = (newItem) => {
     const newItems = [...items, newItem];
     setItems(newItems);
@@ -58,8 +61,6 @@ function App() {
     setItems(itemsData);
   };
 
-  const itemsLength = items.length;
-  const itemsChecked = items.filter((item) => item.completed).length;
 
   return (
     <>
