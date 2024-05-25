@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import EmptyView from './EmptyView';
 import Select from 'react-select';
@@ -17,20 +17,24 @@ export default function ItemList({
 }) {
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
-  // we use the spread operator to create a new array. sort() method does not 
+  // we use the spread operator to create a new array. sort() method does not
   // return a new array, but mutates the original array. We want to avoid
   // mutating the original array.
-  const sortedItems = [...items].sort((a, b) => {
-    if (selectedOption.value === 'completed') {
-      return b.completed - a.completed;
-    }
+  const sortedItems = useMemo(
+    () =>
+      [...items].sort((a, b) => {
+        if (selectedOption.value === 'completed') {
+          return b.completed - a.completed;
+        }
 
-    if (selectedOption.value === 'incomplete') {
-      return a.completed - b.completed;
-    }
+        if (selectedOption.value === 'incomplete') {
+          return a.completed - b.completed;
+        }
 
-    return;
-  });
+        return;
+      }),
+    [items, selectedOption]
+  );
 
   return (
     <StyledList>
