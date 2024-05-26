@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 
 import BackgroundHeading from './BackgroundHeading';
 import Footer from './Footer';
-import Header from './Header';
 import ItemList from './ItemList';
 import Sidebar from './Sidebar';
 import Logo from './Logo';
@@ -79,10 +78,10 @@ function App() {
       <BackgroundHeading />
 
       <StyledMain>
-        <Header>
+        <StyledHeaderBar>
           <Logo />
           <Counter itemsLength={itemsLength} itemsChecked={itemsChecked} />
-        </Header>
+        </StyledHeaderBar>
         <ItemList
           items={items}
           handleDeleteItem={handleDeleteItem}
@@ -116,4 +115,15 @@ const StyledMain = styled.main`
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
   /* box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
+`;
+
+const StyledHeaderBar = styled.header`
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  background-color: #fbf5ed;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
 `;
