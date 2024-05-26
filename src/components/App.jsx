@@ -6,6 +6,8 @@ import Footer from './Footer';
 import Header from './Header';
 import ItemList from './ItemList';
 import Sidebar from './Sidebar';
+import Logo from './Logo';
+import Counter from './Counter';
 
 const itemsData = [
   { id: 1, label: 'passport', completed: false },
@@ -77,7 +79,10 @@ function App() {
       <BackgroundHeading />
 
       <StyledMain>
-        <Header itemsLength={itemsLength} itemsChecked={itemsChecked} />
+        <Header>
+          <Logo />
+          <Counter itemsLength={itemsLength} itemsChecked={itemsChecked} />
+        </Header>
         <ItemList
           items={items}
           handleDeleteItem={handleDeleteItem}

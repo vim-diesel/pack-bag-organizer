@@ -1,14 +1,7 @@
 import styled from 'styled-components';
-import Logo from './Logo';
-import Counter from './Counter';
 
-export default function Header({ itemsLength, itemsChecked }) {
-  return (
-    <StyledHeader>
-      <Logo />
-      <Counter itemsLength={itemsLength} itemsChecked={itemsChecked} />
-    </StyledHeader>
-  );
+export default function Header({ children }) {
+  return <StyledHeader>{children}</StyledHeader>;
 }
 
 const StyledHeader = styled.header`
