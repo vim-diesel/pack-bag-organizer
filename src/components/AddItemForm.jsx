@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from './Button';
 import { useRef, useState } from 'react';
 
-export default function AddItemForm({ handleAddItem }) {
+export default function AddItemForm({ addItem }) {
   const [itemToAdd, setItemToAdd] = useState('');
 
   const inputRef = useRef();
@@ -15,13 +15,7 @@ export default function AddItemForm({ handleAddItem }) {
       return;
     }
 
-    const newItem = {
-      label: itemToAdd,
-      completed: false,
-      id: Math.random(),
-    };
-
-    handleAddItem(newItem);
+    addItem(itemToAdd);
 
     setItemToAdd('');
   };

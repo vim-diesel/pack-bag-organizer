@@ -1,3 +1,4 @@
+import { useItemsStore } from '../stores/itemsStore';
 import AddItemForm from './AddItemForm';
 import ManageItemButtons from './ManageItemButtons';
 import styled from 'styled-components';
@@ -7,22 +8,13 @@ import styled from 'styled-components';
 // AddItemForm and ManageItemButtons are not semantically the same so they are
 // not wrapped in a single section element.
 
-export default function Sidebar({
-  handleAddItem,
-  handleRemoveAllItems,
-  handleMarkAllComplete,
-  handleMarkAllIncomplete,
-  handleReset,
-}) {
+export default function Sidebar() {
+  const addItem = useItemsStore((state) => state.addItem);
+
   return (
     <SidebarWrapper>
-      <AddItemForm handleAddItem={handleAddItem} />
-      <ManageItemButtons
-        handleRemoveAllItems={handleRemoveAllItems}
-        handleMarkAllComplete={handleMarkAllComplete}
-        handleMarkAllIncomplete={handleMarkAllIncomplete}
-        handleReset={handleReset}
-      />
+      <AddItemForm addItem={addItem} />
+      <ManageItemButtons />
     </SidebarWrapper>
   );
 }

@@ -1,99 +1,20 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
 
 import BackgroundHeading from './BackgroundHeading';
 import Footer from './Footer';
 import ItemList from './ItemList';
 import Sidebar from './Sidebar';
-import Logo from './Logo';
-import Counter from './Counter';
-
-const itemsData = [
-  { id: 1, label: 'passport', completed: false },
-  { id: 2, label: 'phone charger', completed: false },
-  { id: 3, label: 'grounded in the body', completed: true },
-];
+import Header from './Header';
 
 function App() {
-  const [items, setItems] = useState(() => {
-    const savedItems = localStorage.getItem('items');
-    if (savedItems) {
-      return JSON.parse(savedItems);
-    } else {
-      return itemsData;
-    }
-  });
-
-  useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items));
-  }, [items]);
-
-  const itemsLength = items.length;
-  const itemsChecked = items.filter((item) => item.completed).length;
-
-  const handleAddItem = (newItem) => {
-    const newItems = [...items, newItem];
-    setItems(newItems);
-  };
-
-  const handleDeleteItem = (id) => {
-    const newItems = items.filter((item) => item.id !== id);
-    setItems(newItems);
-  };
-
-  const handleToggleItem = (id) => {
-    const newItems = items.map((item) => {
-      if (item.id === id) {
-        return { ...item, completed: !item.completed };
-      }
-      return item;
-    });
-    setItems(newItems);
-  };
-
-  const handleRemoveAllItems = () => {
-    setItems([]);
-  };
-
-  const handleMarkAllComplete = () => {
-    const newItems = items.map((item) => {
-      return { ...item, completed: true };
-    });
-    setItems(newItems);
-  };
-
-  const handleMarkAllIncomplete = () => {
-    const newItems = items.map((item) => {
-      return { ...item, completed: false };
-    });
-    setItems(newItems);
-  };
-
-  const handleReset = () => {
-    setItems(itemsData);
-  };
-
   return (
     <>
       <BackgroundHeading />
 
       <StyledMain>
-        <StyledHeaderBar>
-          <Logo />
-          <Counter itemsLength={itemsLength} itemsChecked={itemsChecked} />
-        </StyledHeaderBar>
-        <ItemList
-          items={items}
-          handleDeleteItem={handleDeleteItem}
-          handleToggleItem={handleToggleItem}
-        />
-        <Sidebar
-          handleAddItem={handleAddItem}
-          handleRemoveAllItems={handleRemoveAllItems}
-          handleMarkAllComplete={handleMarkAllComplete}
-          handleMarkAllIncomplete={handleMarkAllIncomplete}
-          handleReset={handleReset}
-        />
+        <Header />
+        <ItemList />
+        <Sidebar />
       </StyledMain>
 
       <Footer />
@@ -117,13 +38,4 @@ const StyledMain = styled.main`
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
 `;
 
-const StyledHeaderBar = styled.header`
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
-  background-color: #fbf5ed;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 28px;
-`;
+

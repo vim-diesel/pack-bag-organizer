@@ -3,18 +3,19 @@ import { useMemo, useState } from 'react';
 
 import EmptyView from './EmptyView';
 import Select from 'react-select';
+import { useItemsStore } from '../stores/itemsStore';
 
 const options = [
   { value: 'default', label: 'Sort by Default' },
-  { value: 'completed', label: 'Sort by Completed' },
-  { value: 'incomplete', label: 'Sort by Incomplete' },
+  { value: 'packed', label: 'Sort by Packed' },
+  { value: 'unpacked', label: 'Sort by Unpacked' },
 ];
 
-export default function ItemList({
-  items,
-  handleDeleteItem,
-  handleToggleItem,
-}) {
+export default function ItemList() {
+  const items = useItemsStore((state) => state.items);
+  const deleteItem = useItemsStore((state) => state.deleteItem);
+  const toggleItem = useItemsStore((state) => state.toggleItem);
+
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
   // we use the spread operator to create a new array. sort() method does not
@@ -23,12 +24,12 @@ export default function ItemList({
   const sortedItems = useMemo(
     () =>
       [...items].sort((a, b) => {
-        if (selectedOption.value === 'completed') {
-          return b.completed - a.completed;
+        if (selectedOption.value === 'packed') {
+          return b.packed - a.packed;
         }
 
-        if (selectedOption.value === 'incomplete') {
-          return a.completed - b.completed;
+        if (selectedOption.value === 'unpacked') {
+          return a.packed - b.packed;
         }
 
         return;
@@ -53,30 +54,29 @@ export default function ItemList({
       {sortedItems.map((item) => (
         <Item
           key={item.id}
-          itemId={item.id}
-          label={item.label}
-          checked={item.completed}
-          handleDeleteItem={handleDeleteItem}
-          handleToggleItem={handleToggleItem}
+          item={item}
+          checked={item.packed}
+          onDeleteItem={deleteItem}
+          onToggleItem={toggleItem}
         />
       ))}
     </StyledList>
   );
 }
 
-function Item({ label, itemId, checked, handleDeleteItem, handleToggleItem }) {
+function Item({ item, checked, onDeleteItem, onToggleItem }) {
   return (
     <StyledListItem>
       <label>
         <input
           type='checkbox'
           checked={checked}
-          onChange={() => handleToggleItem(itemId)}
+          onChange={() => onToggleItem(item.id)}
         />{' '}
-        {label}
+        {item.name}
       </label>
 
-      <button onClick={() => handleDeleteItem(itemId)}>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </StyledListItem>
   );
 }
